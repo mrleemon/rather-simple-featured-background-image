@@ -23,7 +23,13 @@ add_action( 'init', 'fbi_init' );
  * Adds a meta box to the post editing screen
  */
 function fbi_add_meta_boxes() {
-	add_meta_box( 'fbi-background-image', __( 'Featured Background Image', 'featured-background-image' ), 'fbi_meta_callback', array( 'post', 'page' ), 'side' );
+	add_meta_box( 'fbi-background-image', 
+				  __( 'Featured Background Image', 
+				  'featured-background-image' ), 
+				  'fbi_background_image_meta_box_callback', 
+				  array( 'post', 'page' ), 
+				  'side', 
+				  'low' );
 }
 add_action( 'add_meta_boxes', 'fbi_add_meta_boxes' );
 
@@ -31,7 +37,7 @@ add_action( 'add_meta_boxes', 'fbi_add_meta_boxes' );
 /**
  * Outputs the content of the meta box
  */
-function fbi_meta_callback( $post ) {
+function fbi_background_image_meta_box_callback( $post ) {
 	wp_nonce_field( basename( __FILE__ ), 'fbi_nonce' );
 	$fbi_image = get_post_meta( $post->ID, '_fbi_image', true);
 	$repeat = get_post_meta( $post->ID, '_fbi_repeat', true );
@@ -90,7 +96,7 @@ function fbi_meta_callback( $post ) {
 ?>
 
 	<!-- Begin background image options -->
-	<div class="fbi-image-options">
+	<div id="fbi-background-options">
 
 		<p>
 			<label for="fbi-repeat"><?php _e( 'Repeat', 'featured-background-image' ); ?></label>
