@@ -48,7 +48,7 @@ function fbi_meta_callback( $post ) {
 
 ?>
 	<div id="fbi-thumbnail" class="<?php if ( empty ( $fbi_image ) ) echo 'hide'; ?>">
-		<img id="fbi-thumbnail" src="<?php echo $fbi_image; ?>" class="attachment-post-thumbnail" ></a>
+		<a href="#" id="fbi-update-image"><img src="<?php echo $fbi_image; ?>" class="thumbnail" /></a>
 	</div>
 	<input type="hidden" name="fbi-image" id="fbi-image" value="<?php if ( !empty ( $fbi_image ) ) echo $fbi_image; ?>" />
 	<p>

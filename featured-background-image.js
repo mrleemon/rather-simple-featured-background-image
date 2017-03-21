@@ -10,11 +10,11 @@ jQuery(document).ready(function($){
      * Opens the wordpress media manager frame and sets actions for 
      * when the user makes their selections
      */
-    $( '#fbi-set-image' ).click(function(e){
+    $( '#fbi-set-image, #fbi-update-image' ).click(function(e){
  
         // Prevents the default action from occuring.
         e.preventDefault();
- 
+
         // If the frame already exists, re-open it.
         if ( background_image_frame ) {
             background_image_frame.open();
@@ -36,7 +36,7 @@ jQuery(document).ready(function($){
 
             // displays a thumbnail of the selected image
             $( '#fbi-thumbnail' ).removeClass( 'hide' );
-			$( '#fbi-thumbnail' ).html( '<img src="' + media_attachment.url + '" alt="thumbnail">' );
+			$( '#fbi-thumbnail img' ).attr( 'src', media_attachment.url );
 
             // Sends the attachment URL to our custom image input field.
             $( '#fbi-image' ).val( media_attachment.url );
