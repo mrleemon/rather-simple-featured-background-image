@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Featured Background Image\n"
-"POT-Creation-Date: 2017-03-21 16:06+0100\n"
-"PO-Revision-Date: 2017-03-21 16:07+0100\n"
+"POT-Creation-Date: 2017-03-21 18:24+0100\n"
+"PO-Revision-Date: 2017-03-21 18:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -21,17 +21,89 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: featured-background-image.php:26 featured-background-image.php:91
+#: featured-background-image.php:26 featured-background-image.php:223
 msgid "Featured Background Image"
 msgstr "Imatge de fons destacada"
 
-#: featured-background-image.php:44 featured-background-image.php:92
+#: featured-background-image.php:55 featured-background-image.php:224
 msgid "Set featured background image"
 msgstr "Defineix la imatge de fons destacada"
 
-#: featured-background-image.php:45
+#: featured-background-image.php:56
 msgid "Remove featured background image"
 msgstr "Suprimeix la imatge de fons destacada"
+
+#: featured-background-image.php:62
+msgid "No Repeat"
+msgstr "No repetir"
+
+#: featured-background-image.php:63 featured-background-image.php:96
+msgid "Repeat"
+msgstr "Repetir"
+
+#: featured-background-image.php:64
+msgid "Repeat Horizontally"
+msgstr "Repetir horitzontalment"
+
+#: featured-background-image.php:65
+msgid "Repeat Vertically"
+msgstr "Repetir verticalment"
+
+#: featured-background-image.php:69
+msgid "Left"
+msgstr "Esquerra"
+
+#: featured-background-image.php:70
+msgid "Right"
+msgstr "Dreta"
+
+#: featured-background-image.php:71 featured-background-image.php:77
+msgid "Center"
+msgstr "Centre"
+
+#: featured-background-image.php:75
+msgid "Top"
+msgstr "A dalt"
+
+#: featured-background-image.php:76
+msgid "Bottom"
+msgstr "A baix"
+
+#: featured-background-image.php:81
+msgid "Scroll"
+msgstr "Scroll"
+
+#: featured-background-image.php:82
+msgid "Fixed"
+msgstr "Fixe"
+
+#: featured-background-image.php:86
+msgid "Auto"
+msgstr "Automàtic"
+
+#: featured-background-image.php:87
+msgid "Cover"
+msgstr "Cover"
+
+#: featured-background-image.php:88
+msgid "Contain"
+msgstr "Contain"
+
+#: featured-background-image.php:105
+msgid "Horizontal Position"
+msgstr "Posició horitzontal"
+
+#: featured-background-image.php:114
+msgid "Vertical Position"
+msgstr "Posició vertical"
+
+#: featured-background-image.php:123
+msgid "Attachment"
+msgstr "Fixació"
+
+#: featured-background-image.php:132
+msgid "Size"
+msgstr "Mida"
 
 #. Description of the plugin/theme
 msgid ""
