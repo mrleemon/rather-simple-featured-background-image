@@ -328,6 +328,8 @@ class FeaturedBackgroundImage {
 			$attachment = !empty( $attachment ) ? $attachment : 'scroll';
 			$size = !empty( $size ) ? $size : 'cover';
 
+			$custom_css = '';
+			
 			if ( !empty ( $fbi_image ) ) {
 				$custom_css = '
 					body {
@@ -339,6 +341,7 @@ class FeaturedBackgroundImage {
 					}
 				';
 			}
+			
 			wp_add_inline_style( 'featured-background-image', $custom_css );
 		}
 	
