@@ -135,37 +135,36 @@ class FeaturedBackgroundImage {
 	<?php
 		/* Set up an array of allowed values for the repeat option. */
 		$repeat_options = array( 
-			'no-repeat' => __( 'No Repeat',           'featured-background-image' ), 
-			'repeat'    => __( 'Repeat',              'featured-background-image' ),
+			'no-repeat' => __( 'No Repeat', 'featured-background-image' ), 
+			'repeat'    => __( 'Repeat', 'featured-background-image' ),
 			'repeat-x'  => __( 'Repeat Horizontally', 'featured-background-image' ),
-			'repeat-y'  => __( 'Repeat Vertically',   'featured-background-image' ),
+			'repeat-y'  => __( 'Repeat Vertically', 'featured-background-image' ),
 		);
 		/* Set up an array of allowed values for the position-x option. */
 		$position_x_options = array( 
-			'left'   => __( 'Left',   'featured-background-image' ), 
-			'right'  => __( 'Right',  'featured-background-image' ),
+			'left'   => __( 'Left', 'featured-background-image' ), 
+			'right'  => __( 'Right', 'featured-background-image' ),
 			'center' => __( 'Center', 'featured-background-image' ),
 		);
 		/* Set up an array of allowed values for the position-x option. */
 		$position_y_options = array( 
-			'top'    => __( 'Top',    'featured-background-image' ), 
+			'top'    => __( 'Top', 'featured-background-image' ), 
 			'bottom' => __( 'Bottom', 'featured-background-image' ),
 			'center' => __( 'Center', 'featured-background-image' ),
 		);
 		/* Set up an array of allowed values for the attachment option. */
 		$attachment_options = array( 
 			'scroll' => __( 'Scroll', 'featured-background-image' ), 
-			'fixed'  => __( 'Fixed',  'featured-background-image' ),
+			'fixed'  => __( 'Fixed', 'featured-background-image' ),
 		);
 		/* Set up an array of allowed values for the size option. */
 		$size_options = array( 
 			'auto' => __( 'Auto', 'featured-background-image' ), 
-			'cover'  => __( 'Cover',  'featured-background-image' ),
-			'contain'  => __( 'Contain',  'featured-background-image' ),
+			'cover'  => __( 'Cover', 'featured-background-image' ),
+			'contain'  => __( 'Contain', 'featured-background-image' ),
 		);
 	?>
 
-		<!-- Begin background image options -->
 		<div id="fbi-background-options">
 
 			<p>
@@ -214,7 +213,6 @@ class FeaturedBackgroundImage {
 			</p>
 		
 		</div>
-		<!-- End background image options. -->
 	
 	<?php
 
@@ -237,7 +235,7 @@ class FeaturedBackgroundImage {
 		}
 
 		// Checks for input and saves if needed
-		if( isset( $_POST[ 'fbi-image' ] ) ) {
+		if ( isset( $_POST[ 'fbi-image' ] ) ) {
 			update_post_meta( $post_id, '_fbi_image', $_POST[ 'fbi-image' ] );
 		}
 	
@@ -309,7 +307,7 @@ class FeaturedBackgroundImage {
 	function enqueue_scripts() {
 		global $post;
 
-		wp_enqueue_style( 'featured-background-image-style', plugin_dir_url( __FILE__ ) . 'style.css' );
+		wp_enqueue_style( 'featured-background-image', plugin_dir_url( __FILE__ ) . 'style.css' );
 	
 		$fbi_image = get_post_meta( $post->ID, '_fbi_image', true);
 		$repeat = get_post_meta( $post->ID, '_fbi_repeat', true );
@@ -317,7 +315,13 @@ class FeaturedBackgroundImage {
 		$position_y = get_post_meta( $post->ID, '_fbi_position_y', true );
 		$attachment = get_post_meta( $post->ID, '_fbi_attachment', true );
 		$size = get_post_meta( $post->ID, '_fbi_size', true );
-	
+		
+		$repeat = !empty( $repeat ) ? $repeat : 'no-repeat';
+		$position_x = !empty( $position_x ) ? $position_x : 'center';
+		$position_y = !empty( $position_y ) ? $position_y : 'center';
+		$attachment = !empty( $attachment ) ? $attachment : 'scroll';
+		$size = !empty( $size ) ? $size : 'cover';
+
 		if ( !empty ( $fbi_image ) ) {
 			$custom_css = '
 				body {
@@ -328,7 +332,7 @@ class FeaturedBackgroundImage {
 					background-size: ' . $size . ';
 				}
 			';
-			wp_add_inline_style( 'featured-background-image-style', $custom_css );
+			wp_add_inline_style( 'featured-background-image', $custom_css );
 		}
 	
 	}
