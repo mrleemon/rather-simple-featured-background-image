@@ -307,31 +307,34 @@ class FeaturedBackgroundImage {
 	function enqueue_scripts() {
 		global $post;
 
-		wp_enqueue_style( 'featured-background-image', plugin_dir_url( __FILE__ ) . 'style.css' );
+		if ( is_singular() ) {
+			
+			wp_enqueue_style( 'featured-background-image', plugin_dir_url( __FILE__ ) . 'style.css' );
 	
-		$fbi_image = get_post_meta( $post->ID, '_fbi_image', true);
-		$repeat = get_post_meta( $post->ID, '_fbi_repeat', true );
-		$position_x = get_post_meta( $post->ID, '_fbi_position_x', true );
-		$position_y = get_post_meta( $post->ID, '_fbi_position_y', true );
-		$attachment = get_post_meta( $post->ID, '_fbi_attachment', true );
-		$size = get_post_meta( $post->ID, '_fbi_size', true );
+			$fbi_image = get_post_meta( $post->ID, '_fbi_image', true);
+			$repeat = get_post_meta( $post->ID, '_fbi_repeat', true );
+			$position_x = get_post_meta( $post->ID, '_fbi_position_x', true );
+			$position_y = get_post_meta( $post->ID, '_fbi_position_y', true );
+			$attachment = get_post_meta( $post->ID, '_fbi_attachment', true );
+			$size = get_post_meta( $post->ID, '_fbi_size', true );
 		
-		$repeat = !empty( $repeat ) ? $repeat : 'no-repeat';
-		$position_x = !empty( $position_x ) ? $position_x : 'center';
-		$position_y = !empty( $position_y ) ? $position_y : 'center';
-		$attachment = !empty( $attachment ) ? $attachment : 'scroll';
-		$size = !empty( $size ) ? $size : 'cover';
+			$repeat = !empty( $repeat ) ? $repeat : 'no-repeat';
+			$position_x = !empty( $position_x ) ? $position_x : 'center';
+			$position_y = !empty( $position_y ) ? $position_y : 'center';
+			$attachment = !empty( $attachment ) ? $attachment : 'scroll';
+			$size = !empty( $size ) ? $size : 'cover';
 
-		if ( !empty ( $fbi_image ) ) {
-			$custom_css = '
-				body {
-					background-image: url("' . $fbi_image . '");
-					background-repeat: ' . $repeat . ';
-					background-position: ' . $position_x . ' ' . $position_y . ';
-					background-attachment: ' . $attachment . ';
-					background-size: ' . $size . ';
-				}
-			';
+			if ( !empty ( $fbi_image ) ) {
+				$custom_css = '
+					body {
+						background-image: url("' . $fbi_image . '");
+						background-repeat: ' . $repeat . ';
+						background-position: ' . $position_x . ' ' . $position_y . ';
+						background-attachment: ' . $attachment . ';
+						background-size: ' . $size . ';
+					}
+				';
+			}
 			wp_add_inline_style( 'featured-background-image', $custom_css );
 		}
 	
