@@ -64,7 +64,7 @@ class FeaturedBackgroundImage {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
-		add_action( 'save_post',  array( $this, 'save_post' ) );
+		add_action( 'save_post',  array( $this, 'save_post' ), 10, 3 );
 	
 	}
 
@@ -222,7 +222,7 @@ class FeaturedBackgroundImage {
 	/**
 	* Saves the custom meta input
 	*/
-	function save_post( $post_id ) {
+	function save_post( $post_id, $post, $update ) {
  
 		// Checks save status
 		$is_autosave = wp_is_post_autosave( $post_id );
@@ -234,43 +234,47 @@ class FeaturedBackgroundImage {
 			return;
 		}
 
-		// Checks for input and saves if needed
-		if ( isset( $_POST[ 'fbi-image' ] ) ) {
-			update_post_meta( $post_id, '_fbi_image', $_POST[ 'fbi-image' ] );
-		}
-	
-		$allowed_repeat = array( 'no-repeat', 'repeat', 'repeat-x', 'repeat-y' );
-		$allowed_position_x = array( 'left', 'right', 'center' );
-		$allowed_position_y = array( 'top', 'bottom', 'center' );
-		$allowed_attachment = array( 'scroll', 'fixed' );
-		$allowed_size = array( 'auto', 'cover', 'contain' );
-	
-		/* Make sure the values have been white-listed. Otherwise, set an empty string. */
-		$repeat = in_array( $_POST['fbi-repeat'], $allowed_repeat ) ? $_POST['fbi-repeat'] : '';
-		$position_x = in_array( $_POST['fbi-position-x'], $allowed_position_x ) ? $_POST['fbi-position-x'] : '';
-		$position_y = in_array( $_POST['fbi-position-y'], $allowed_position_y ) ? $_POST['fbi-position-y'] : '';
-		$attachment = in_array( $_POST['fbi-attachment'], $allowed_attachment ) ? $_POST['fbi-attachment'] : '';
-		$size = in_array( $_POST['fbi-size'], $allowed_size ) ? $_POST['fbi-size'] : '';
-
-		/* Set up an array of meta keys and values. */
-		$meta = array(
-			'_fbi_repeat' => $repeat,
-			'_fbi_position_x' => $position_x,
-			'_fbi_position_y' => $position_y,
-			'_fbi_attachment' => $attachment,
-			'_fbi_size' => $size,
-		);
-	
-		/* Loop through the meta array and add, update, or delete the post metadata. */
-		foreach ( $meta as $meta_key => $new_meta_value ) {
-			$meta_value = get_post_meta( $post_id, $meta_key, true );
-			if ( $new_meta_value && '' == $meta_value ) {
-				add_post_meta( $post_id, $meta_key, $new_meta_value, true );
-			} elseif ( $new_meta_value && $new_meta_value != $meta_value ) {
-				update_post_meta( $post_id, $meta_key, $new_meta_value );
-			} elseif ( '' == $new_meta_value && $meta_value ) {
-				delete_post_meta( $post_id, $meta_key, $meta_value );
+		if ( $update ) {
+			
+			// Checks for input and saves if needed
+			if ( isset( $_POST[ 'fbi-image' ] ) ) {
+				update_post_meta( $post_id, '_fbi_image', $_POST[ 'fbi-image' ] );
 			}
+	
+			$allowed_repeat = array( 'no-repeat', 'repeat', 'repeat-x', 'repeat-y' );
+			$allowed_position_x = array( 'left', 'right', 'center' );
+			$allowed_position_y = array( 'top', 'bottom', 'center' );
+			$allowed_attachment = array( 'scroll', 'fixed' );
+			$allowed_size = array( 'auto', 'cover', 'contain' );
+	
+			/* Make sure the values have been white-listed. Otherwise, set an empty string. */
+			$repeat = in_array( $_POST['fbi-repeat'], $allowed_repeat ) ? $_POST['fbi-repeat'] : '';
+			$position_x = in_array( $_POST['fbi-position-x'], $allowed_position_x ) ? $_POST['fbi-position-x'] : '';
+			$position_y = in_array( $_POST['fbi-position-y'], $allowed_position_y ) ? $_POST['fbi-position-y'] : '';
+			$attachment = in_array( $_POST['fbi-attachment'], $allowed_attachment ) ? $_POST['fbi-attachment'] : '';
+			$size = in_array( $_POST['fbi-size'], $allowed_size ) ? $_POST['fbi-size'] : '';
+
+			/* Set up an array of meta keys and values. */
+			$meta = array(
+				'_fbi_repeat' => $repeat,
+				'_fbi_position_x' => $position_x,
+				'_fbi_position_y' => $position_y,
+				'_fbi_attachment' => $attachment,
+				'_fbi_size' => $size,
+			);
+	
+			/* Loop through the meta array and add, update, or delete the post metadata. */
+			foreach ( $meta as $meta_key => $new_meta_value ) {
+				$meta_value = get_post_meta( $post_id, $meta_key, true );
+				if ( $new_meta_value && '' == $meta_value ) {
+					add_post_meta( $post_id, $meta_key, $new_meta_value, true );
+				} elseif ( $new_meta_value && $new_meta_value != $meta_value ) {
+					update_post_meta( $post_id, $meta_key, $new_meta_value );
+				} elseif ( '' == $new_meta_value && $meta_value ) {
+					delete_post_meta( $post_id, $meta_key, $meta_value );
+				}
+			}
+			
 		}
 		
 	}
