@@ -328,11 +328,10 @@ class FeaturedBackgroundImage {
 			$attachment = !empty( $attachment ) ? $attachment : 'scroll';
 			$size = !empty( $size ) ? $size : 'cover';
 
-			$custom_css = '';
+			$selector = apply_filters( 'fbi_selector', 'body' );
 			
 			if ( !empty ( $fbi_image ) ) {
-				$custom_css = '
-					body {
+				$custom_css = wp_strip_all_tags( $selector ) . ' {
 						background-image: url("' . $fbi_image . '");
 						background-repeat: ' . $repeat . ';
 						background-position: ' . $position_x . ' ' . $position_y . ';
@@ -340,9 +339,10 @@ class FeaturedBackgroundImage {
 						background-size: ' . $size . ';
 					}
 				';
+				wp_add_inline_style( 'featured-background-image', $custom_css );
 			}
 			
-			wp_add_inline_style( 'featured-background-image', $custom_css );
+			
 		}
 	
 	}
