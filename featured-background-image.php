@@ -129,7 +129,8 @@ class FeaturedBackgroundImage {
 		<input type="hidden" name="fbi-image" id="fbi-image" value="<?php if ( !empty ( $fbi_image ) ) echo $fbi_image; ?>" />
 		<p>
 			<a href="#" id="fbi-set-image" class="<?php if ( !empty ( $fbi_image ) ) echo 'hide'; ?>"><?php _e( 'Set featured background image', 'featured-background-image' ); ?></a>
-			<a href="#" id="fbi-remove-image" class="<?php if ( empty ( $fbi_image ) ) echo 'hide'; ?>" ><?php _e( 'Remove featured background image', 'featured-background-image' ); ?></a>
+			<p id="fbi-image-desc" class="<?php if ( empty ( $fbi_image ) ) echo 'hide'; ?>"><?php _e( 'Click the image to edit or update' ); ?></p>
+			<a href="#" id="fbi-remove-image"  class="<?php if ( empty ( $fbi_image ) ) echo 'hide'; ?>"><?php _e( 'Remove featured background image', 'featured-background-image' ); ?></a>
 		</p>
 	
 	<?php

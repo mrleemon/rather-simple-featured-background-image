@@ -42,8 +42,9 @@ jQuery(document).ready(function($){
             $( '#fbi-image' ).val( media_attachment.url );
 
             // hide / show appropriate links
-            $( '#fbi-remove-image' ).removeClass( 'hide' );
             $( '#fbi-set-image' ).addClass( 'hide' );
+            $( '#fbi-image-desc' ).removeClass( 'hide' );
+            $( '#fbi-remove-image' ).removeClass( 'hide' );
         });
  
         // Opens the media library frame.
@@ -58,8 +59,9 @@ jQuery(document).ready(function($){
 		$( '#fbi-thumbnail' ).addClass( 'hide' );
 		$( '#fbi-thumbnail img' ).attr( 'src', '' );
 		$( '#fbi-image' ).val( '' );
-		$( '#fbi-remove-image' ).addClass( 'hide' );
 		$( '#fbi-set-image' ).removeClass( 'hide' );
+		$( '#fbi-image-desc' ).addClass( 'hide' );
+		$( '#fbi-remove-image' ).addClass( 'hide' );
 	});
 
 });

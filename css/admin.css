@@ -15,6 +15,11 @@
     background-size: 20px 20px;
 }
 
+#fbi-image-desc {
+    color: #666;
+    font-style: italic;
+}
+
 .hide {
 	display: none;
 }
