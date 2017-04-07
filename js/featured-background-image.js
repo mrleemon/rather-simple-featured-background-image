@@ -56,7 +56,7 @@ jQuery(document).ready(function($){
 	$( '#fbi-remove-image' ).click(function(e){
 		e.preventDefault();
 		$( '#fbi-thumbnail' ).addClass( 'hide' );
-		$( '#fbi-thumbnail' ).html( '' );
+		$( '#fbi-thumbnail img' ).attr( 'src', '' );
 		$( '#fbi-image' ).val( '' );
 		$( '#fbi-remove-image' ).addClass( 'hide' );
 		$( '#fbi-set-image' ).removeClass( 'hide' );
