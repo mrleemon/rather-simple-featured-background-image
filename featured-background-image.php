@@ -117,8 +117,8 @@ class FeaturedBackgroundImage {
 		$size = get_post_meta( $post->ID, '_fbi_size', true );
 
 		$repeat = !empty( $repeat ) ? $repeat : 'no-repeat';
-		$position_x = !empty( $position_x ) ? $position_x : 'center';
-		$position_y = !empty( $position_y ) ? $position_y : 'center';
+		$position_x = !empty( $position_x ) ? $position_x : '50';
+		$position_y = !empty( $position_y ) ? $position_y : '50';
 		$attachment = !empty( $attachment ) ? $attachment : 'scroll';
 		$size = !empty( $size ) ? $size : 'cover';
 
@@ -143,15 +143,15 @@ class FeaturedBackgroundImage {
 		);
 		/* Set up an array of allowed values for the position-x option. */
 		$position_x_options = array( 
-			'left'   => __( 'Left', 'featured-background-image' ), 
-			'right'  => __( 'Right', 'featured-background-image' ),
-			'center' => __( 'Center', 'featured-background-image' ),
+			'0'   => __( '0% (Left)', 'featured-background-image' ), 
+			'50' => __( '50% (Center)', 'featured-background-image' ),
+			'100'  => __( '100% (Right)', 'featured-background-image' ),
 		);
 		/* Set up an array of allowed values for the position-x option. */
 		$position_y_options = array( 
-			'top'    => __( 'Top', 'featured-background-image' ), 
-			'bottom' => __( 'Bottom', 'featured-background-image' ),
-			'center' => __( 'Center', 'featured-background-image' ),
+			'0'    => __( '0% (Top)', 'featured-background-image' ), 
+			'50' => __( '50% (Center)', 'featured-background-image' ),
+			'100' => __( '100% (Bottom)', 'featured-background-image' ),
 		);
 		/* Set up an array of allowed values for the attachment option. */
 		$attachment_options = array( 
@@ -169,7 +169,7 @@ class FeaturedBackgroundImage {
 		<div id="fbi-background-options">
 
 			<p>
-				<label for="fbi-repeat"><?php _e( 'Repeat', 'featured-background-image' ); ?></label>
+				<label for="fbi-repeat"><?php _e( 'Repetition', 'featured-background-image' ); ?></label>
 				<select class="widefat" name="fbi-repeat" id="fbi-repeat">
 				<?php foreach( $repeat_options as $option => $label ) { ?>
 					<option value="<?php echo esc_attr( $option ); ?>" <?php selected( $repeat, $option ); ?> /><?php echo esc_html( $label ); ?></option>
@@ -243,8 +243,8 @@ class FeaturedBackgroundImage {
 			}
 	
 			$allowed_repeat = array( 'no-repeat', 'repeat', 'repeat-x', 'repeat-y' );
-			$allowed_position_x = array( 'left', 'right', 'center' );
-			$allowed_position_y = array( 'top', 'bottom', 'center' );
+			$allowed_position_x = array( '0', '50', '100' );
+			$allowed_position_y = array( '0', '50', '100' );
 			$allowed_attachment = array( 'scroll', 'fixed' );
 			$allowed_size = array( 'auto', 'cover', 'contain' );
 	
@@ -324,8 +324,8 @@ class FeaturedBackgroundImage {
 			$size = get_post_meta( $post->ID, '_fbi_size', true );
 		
 			$repeat = !empty( $repeat ) ? $repeat : 'no-repeat';
-			$position_x = !empty( $position_x ) ? $position_x : 'center';
-			$position_y = !empty( $position_y ) ? $position_y : 'center';
+			$position_x = !empty( $position_x ) ? $position_x : '50';
+			$position_y = !empty( $position_y ) ? $position_y : '50';
 			$attachment = !empty( $attachment ) ? $attachment : 'scroll';
 			$size = !empty( $size ) ? $size : 'cover';
 
@@ -335,7 +335,7 @@ class FeaturedBackgroundImage {
 				$custom_css = wp_strip_all_tags( $selector ) . ' {
 						background-image: url("' . $fbi_image . '");
 						background-repeat: ' . $repeat . ';
-						background-position: ' . $position_x . ' ' . $position_y . ';
+						background-position: ' . $position_x . '% ' . $position_y . '%;
 						background-attachment: ' . $attachment . ';
 						background-size: ' . $size . ';
 					}

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Featured Background Image\n"
-"POT-Creation-Date: 2017-03-21 18:31+0100\n"
-"PO-Revision-Date: 2017-03-21 18:33+0100\n"
+"POT-Creation-Date: 2017-04-08 10:06+0200\n"
+"PO-Revision-Date: 2017-04-08 10:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -21,87 +21,95 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: featured-background-image.php:26 featured-background-image.php:223
+#: featured-background-image.php:99 featured-background-image.php:299
 msgid "Featured Background Image"
 msgstr "Imagen de fondo destacada"
 
-#: featured-background-image.php:55 featured-background-image.php:224
+#: featured-background-image.php:131 featured-background-image.php:300
 msgid "Set featured background image"
 msgstr "Asignar imagen de fondo destacada"
 
-#: featured-background-image.php:56
+#: featured-background-image.php:132
+msgid "Click the image to edit or update"
+msgstr ""
+
+#: featured-background-image.php:133
 msgid "Remove featured background image"
 msgstr "Quitar la imagen destacada"
 
-#: featured-background-image.php:62
+#: featured-background-image.php:139
 msgid "No Repeat"
 msgstr "No repetir"
 
-#: featured-background-image.php:63 featured-background-image.php:96
+#: featured-background-image.php:140
 msgid "Repeat"
 msgstr "Repetir"
 
-#: featured-background-image.php:64
+#: featured-background-image.php:141
 msgid "Repeat Horizontally"
 msgstr "Repetir horizontalmente"
 
-#: featured-background-image.php:65
+#: featured-background-image.php:142
 msgid "Repeat Vertically"
 msgstr "Repetir verticalmente"
 
-#: featured-background-image.php:69
-msgid "Left"
-msgstr "Izquierda"
+#: featured-background-image.php:146
+msgid "0% (Left)"
+msgstr "0% (Izquierda)"
 
-#: featured-background-image.php:70
-msgid "Right"
-msgstr "Derecha"
+#: featured-background-image.php:147 featured-background-image.php:153
+msgid "50% (Center)"
+msgstr "50% (Centro)"
 
-#: featured-background-image.php:71 featured-background-image.php:77
-msgid "Center"
-msgstr "Centro"
+#: featured-background-image.php:148
+msgid "100% (Right)"
+msgstr "100% (Derecha)"
 
-#: featured-background-image.php:75
-msgid "Top"
-msgstr "Arriba"
+#: featured-background-image.php:152
+msgid "0% (Top)"
+msgstr "0% (Arriba)"
 
-#: featured-background-image.php:76
-msgid "Bottom"
-msgstr "Abajo"
+#: featured-background-image.php:154
+msgid "100% (Bottom)"
+msgstr "100% (Abajo)"
 
-#: featured-background-image.php:81
+#: featured-background-image.php:158
 msgid "Scroll"
 msgstr "Scroll"
 
-#: featured-background-image.php:82
+#: featured-background-image.php:159
 msgid "Fixed"
 msgstr "Fijo"
 
-#: featured-background-image.php:86
+#: featured-background-image.php:163
 msgid "Auto"
 msgstr "Automático"
 
-#: featured-background-image.php:87
+#: featured-background-image.php:164
 msgid "Cover"
 msgstr "Cover"
 
-#: featured-background-image.php:88
+#: featured-background-image.php:165
 msgid "Contain"
 msgstr "Contain"
 
-#: featured-background-image.php:105
+#: featured-background-image.php:172
+msgid "Repetition"
+msgstr "Repetición"
+
+#: featured-background-image.php:181
 msgid "Horizontal Position"
 msgstr "Posición horizontal"
 
-#: featured-background-image.php:114
+#: featured-background-image.php:190
 msgid "Vertical Position"
 msgstr "Posición vertical"
 
-#: featured-background-image.php:123
+#: featured-background-image.php:199
 msgid "Attachment"
 msgstr "Fijación"
 
-#: featured-background-image.php:132
+#: featured-background-image.php:208
 msgid "Size"
 msgstr "Tamaño"
 
@@ -115,6 +123,17 @@ msgstr ""
 msgid "Oscar Ciutat"
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "http://oscarciutat.com/code/"
-msgstr ""
+#~ msgid "Left"
+#~ msgstr "Izquierda"
+
+#~ msgid "Right"
+#~ msgstr "Derecha"
+
+#~ msgid "Center"
+#~ msgstr "Centro"
+
+#~ msgid "Top"
+#~ msgstr "Arriba"
+
+#~ msgid "Bottom"
+#~ msgstr "Abajo"
