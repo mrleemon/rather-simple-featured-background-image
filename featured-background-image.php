@@ -144,19 +144,24 @@ class FeaturedBackgroundImage {
 		/* Set up an array of allowed values for the position-x option. */
 		$position_x_options = array( 
 			'0'   => __( '0% (Left)', 'featured-background-image' ), 
+			'25' => __( '25%', 'featured-background-image' ),
 			'50' => __( '50% (Center)', 'featured-background-image' ),
+			'75' => __( '75%', 'featured-background-image' ),
 			'100'  => __( '100% (Right)', 'featured-background-image' ),
 		);
 		/* Set up an array of allowed values for the position-x option. */
 		$position_y_options = array( 
 			'0'    => __( '0% (Top)', 'featured-background-image' ), 
+			'25' => __( '25%', 'featured-background-image' ),
 			'50' => __( '50% (Center)', 'featured-background-image' ),
+			'75' => __( '75%', 'featured-background-image' ),
 			'100' => __( '100% (Bottom)', 'featured-background-image' ),
 		);
 		/* Set up an array of allowed values for the attachment option. */
 		$attachment_options = array( 
 			'scroll' => __( 'Scroll', 'featured-background-image' ), 
 			'fixed'  => __( 'Fixed', 'featured-background-image' ),
+			'local' => __( 'Local', 'featured-background-image' )
 		);
 		/* Set up an array of allowed values for the size option. */
 		$size_options = array( 
@@ -243,9 +248,9 @@ class FeaturedBackgroundImage {
 			}
 	
 			$allowed_repeat = array( 'no-repeat', 'repeat', 'repeat-x', 'repeat-y' );
-			$allowed_position_x = array( '0', '50', '100' );
-			$allowed_position_y = array( '0', '50', '100' );
-			$allowed_attachment = array( 'scroll', 'fixed' );
+			$allowed_position_x = array( '0', '25', '50', '75', '100' );
+			$allowed_position_y = array( '0', '25', '50', '75', '100' );
+			$allowed_attachment = array( 'scroll', 'fixed', 'local' );
 			$allowed_size = array( 'auto', 'cover', 'contain' );
 	
 			/* Make sure the values have been white-listed. Otherwise, set an empty string. */
