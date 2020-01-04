@@ -1,0 +1,144 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Rather Simple Featured Background Image\n"
+"POT-Creation-Date: 2020-01-04 14:24+0100\n"
+"PO-Revision-Date: 2020-01-04 14:24+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: rather-simple-featured-background-image.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: rather-simple-featured-background-image.php:99
+#: rather-simple-featured-background-image.php:305
+msgid "Featured Background Image"
+msgstr "Imagen de fondo destacada"
+
+#: rather-simple-featured-background-image.php:132
+#: rather-simple-featured-background-image.php:306
+msgid "Set featured background image"
+msgstr "Asignar imagen de fondo destacada"
+
+#: rather-simple-featured-background-image.php:133
+msgid "Click the image to edit or update"
+msgstr ""
+
+#: rather-simple-featured-background-image.php:134
+msgid "Remove featured background image"
+msgstr "Quitar la imagen destacada"
+
+#: rather-simple-featured-background-image.php:140
+msgid "No Repeat"
+msgstr "No repetir"
+
+#: rather-simple-featured-background-image.php:141
+msgid "Repeat"
+msgstr "Repetir"
+
+#: rather-simple-featured-background-image.php:142
+msgid "Repeat Horizontally"
+msgstr "Repetir horizontalmente"
+
+#: rather-simple-featured-background-image.php:143
+msgid "Repeat Vertically"
+msgstr "Repetir verticalmente"
+
+#: rather-simple-featured-background-image.php:147
+msgid "0% (Left)"
+msgstr "0% (Izquierda)"
+
+#: rather-simple-featured-background-image.php:148
+#: rather-simple-featured-background-image.php:156
+msgid "25%"
+msgstr "25 %"
+
+#: rather-simple-featured-background-image.php:149
+#: rather-simple-featured-background-image.php:157
+msgid "50% (Center)"
+msgstr "50% (Centro)"
+
+#: rather-simple-featured-background-image.php:150
+#: rather-simple-featured-background-image.php:158
+msgid "75%"
+msgstr "75%"
+
+#: rather-simple-featured-background-image.php:151
+msgid "100% (Right)"
+msgstr "100% (Derecha)"
+
+#: rather-simple-featured-background-image.php:155
+msgid "0% (Top)"
+msgstr "0% (Arriba)"
+
+#: rather-simple-featured-background-image.php:159
+msgid "100% (Bottom)"
+msgstr "100% (Abajo)"
+
+#: rather-simple-featured-background-image.php:163
+msgid "Scroll"
+msgstr "Scroll"
+
+#: rather-simple-featured-background-image.php:164
+msgid "Fixed"
+msgstr "Fijo"
+
+#: rather-simple-featured-background-image.php:165
+msgid "Local"
+msgstr ""
+
+#: rather-simple-featured-background-image.php:169
+msgid "Auto"
+msgstr "Automático"
+
+#: rather-simple-featured-background-image.php:170
+msgid "Cover"
+msgstr "Cover"
+
+#: rather-simple-featured-background-image.php:171
+msgid "Contain"
+msgstr "Contain"
+
+#: rather-simple-featured-background-image.php:178
+msgid "Repetition"
+msgstr "Repetición"
+
+#: rather-simple-featured-background-image.php:187
+msgid "Horizontal Position"
+msgstr "Posición horizontal"
+
+#: rather-simple-featured-background-image.php:196
+msgid "Vertical Position"
+msgstr "Posición vertical"
+
+#: rather-simple-featured-background-image.php:205
+msgid "Attachment"
+msgstr "Fijación"
+
+#: rather-simple-featured-background-image.php:214
+msgid "Size"
+msgstr "Tamaño"
+
+#. Plugin Name of the plugin/theme
+msgid "Rather Simple Featured Background Image"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Creates an additional meta-box for assigning a featured background image to "
+"posts and pages"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Oscar Ciutat"
+msgstr ""
