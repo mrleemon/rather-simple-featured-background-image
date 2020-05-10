@@ -109,7 +109,6 @@ class RatherSimpleFeaturedBackgroundImage {
     * Outputs the content of the meta box
     */
     function background_image_meta_box_callback( $post ) {
-        wp_nonce_field( basename( __FILE__ ), 'fbi_nonce' );
         $fbi_image = get_post_meta( $post->ID, '_fbi_image', true);
         $repeat = get_post_meta( $post->ID, '_fbi_repeat', true );
         $position_x = get_post_meta( $post->ID, '_fbi_position_x', true );
@@ -123,7 +122,8 @@ class RatherSimpleFeaturedBackgroundImage {
         $attachment = !empty( $attachment ) ? $attachment : 'scroll';
         $size = !empty( $size ) ? $size : 'cover';
 
-    ?>
+        wp_nonce_field( basename( __FILE__ ), 'fbi_nonce' );
+        ?>
         <div id="fbi-thumbnail" class="<?php if ( empty ( $fbi_image ) ) echo 'hide'; ?>">
             <a href="#" id="fbi-update-image"><img src="<?php echo $fbi_image; ?>" class="thumbnail" /></a>
         </div>
@@ -234,7 +234,7 @@ class RatherSimpleFeaturedBackgroundImage {
         // Checks save status
         $is_autosave = wp_is_post_autosave( $post_id );
         $is_revision = wp_is_post_revision( $post_id );
-        $is_valid_nonce = ( isset( $_POST[ 'fbi_nonce' ] ) && wp_verify_nonce( $_POST[ 'fbi_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+        $is_valid_nonce = ( !isset( $_POST[ 'fbi_nonce' ] ) || wp_verify_nonce( $_POST[ 'fbi_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
  
         // Exits script depending on save status
         if ( $is_autosave || $is_revision || !$is_valid_nonce ) {
