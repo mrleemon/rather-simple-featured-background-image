@@ -1,7 +1,7 @@
 /*
  * calls the wordpress media manager and saves image url to input field
  */
-jQuery( document ).ready( function( $ ) {
+jQuery( function( $ ) {
 
     // Instantiates the variable that holds the media library frame.
     var background_image_frame;
@@ -10,7 +10,7 @@ jQuery( document ).ready( function( $ ) {
      * Opens the wordpress media manager frame and sets actions for 
      * when the user makes their selections
      */
-    $( '#fbi-set-image, #fbi-update-image' ).click( function( e ) {
+    $( '#fbi-set-image, #fbi-update-image' ).on( 'click', function( e ) {
  
         // Prevents the default action from occuring.
         e.preventDefault();
@@ -29,7 +29,7 @@ jQuery( document ).ready( function( $ ) {
         } );
 
         // Runs when an image is selected.
-        background_image_frame.on('select', function() {
+        background_image_frame.on( 'select', function() {
             
             // Grabs the attachment selection and creates a JSON representation of the model.
             var media_attachment = background_image_frame.state().get( 'selection' ).first().toJSON();
@@ -54,7 +54,7 @@ jQuery( document ).ready( function( $ ) {
 	/**
 	* removes thumbnail and displays "add new" link
 	*/
-	$( '#fbi-remove-image' ).click( function( e ) {
+	$( '#fbi-remove-image' ).on( 'click', function( e ) {
 		e.preventDefault();
 		$( '#fbi-thumbnail' ).addClass( 'hide' );
 		$( '#fbi-thumbnail img' ).attr( 'src', '' );
