@@ -2,7 +2,7 @@
 /*
     Plugin Name: Rather Simple Featured Background Image
     Plugin URI:
-    Update URI: false 
+    Update URI: false
     Description: Creates an additional meta-box for assigning a featured background image to posts and pages
     Author: Oscar Ciutat
     Version: 1.0.0
