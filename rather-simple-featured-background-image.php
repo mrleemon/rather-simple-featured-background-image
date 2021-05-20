@@ -33,7 +33,6 @@ class RatherSimpleFeaturedBackgroundImage {
      */
     protected static $instance = null;
 
-
     /**
      * Access this plugin’s working instance
      *
@@ -49,7 +48,6 @@ class RatherSimpleFeaturedBackgroundImage {
         return self::$instance;
 
     }
-
     
     /**
      * Used for regular plugin work.
@@ -59,7 +57,7 @@ class RatherSimpleFeaturedBackgroundImage {
      */
     public function plugin_setup() {
 
-          $this->includes();
+        $this->includes();
         
         add_action( 'init', array( $this, 'load_language' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -69,20 +67,17 @@ class RatherSimpleFeaturedBackgroundImage {
     
     }
 
-    
     /**
      * Constructor. Intentionally left empty and public.
      *
      * @see plugin_setup()
      */
     public function __construct() {}
-
     
-     /**
+    /**
      * Includes required core files used in admin and on the frontend.
      */
     protected function includes() {}
-
 
     /**
      * Load language
@@ -91,10 +86,9 @@ class RatherSimpleFeaturedBackgroundImage {
         load_plugin_textdomain( 'rather-simple-featured-background-image', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
     }
 
-
     /**
-    * Adds a meta box to the post editing screen
-    */
+     * Adds a meta box to the post editing screen
+     */
     function add_meta_boxes() {
         add_meta_box( 'fbi-background-image', 
             __( 'Featured Background Image', 'rather-simple-featured-background-image' ), 
@@ -105,10 +99,9 @@ class RatherSimpleFeaturedBackgroundImage {
         );
     }
 
-
     /**
-    * Outputs the content of the meta box
-    */
+     * Outputs the content of the meta box
+     */
     function background_image_meta_box_callback( $post ) {
         $fbi_image = get_post_meta( $post->ID, '_fbi_image', true);
         $repeat = get_post_meta( $post->ID, '_fbi_repeat', true );
@@ -226,10 +219,9 @@ class RatherSimpleFeaturedBackgroundImage {
 
     }
 
-
     /**
-    * Saves the custom meta input
-    */
+     * Saves the custom meta input
+     */
     function save_post( $post_id, $post, $update ) {
  
         // Checks save status
@@ -287,10 +279,9 @@ class RatherSimpleFeaturedBackgroundImage {
         
     }
 
-
     /**
-    * Loads admin styles and scripts
-    */
+     * Loads admin styles and scripts
+     */
     function admin_enqueue_scripts() {
         global $typenow;
         //if( $typenow == 'post' || $typenow == 'page' ) {
@@ -312,10 +303,9 @@ class RatherSimpleFeaturedBackgroundImage {
         //}
     }
 
-
     /**
-    * Loads frontend styles and scripts
-    */
+     * Loads frontend styles and scripts
+     */
     function enqueue_scripts() {
         global $post;
 
@@ -349,7 +339,6 @@ class RatherSimpleFeaturedBackgroundImage {
                 ';
                 wp_add_inline_style( 'rather-simple-featured-background-image', $custom_css );
             }
-            
             
         }
     
