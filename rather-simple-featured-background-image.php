@@ -324,12 +324,23 @@ class Rather_Simple_Featured_Background_Image {
 		global $typenow;
 		// if( $typenow == 'post' || $typenow == 'page' ) {
 
-			wp_enqueue_style( 'rather-simple-featured-background-image-admin', plugin_dir_url( __FILE__ ) . 'assets/css/admin.css' );
+			wp_enqueue_style(
+				'rather-simple-featured-background-image-admin',
+				plugin_dir_url( __FILE__ ) . 'assets/css/admin.css',
+				array(),
+				filemtime( plugin_dir_path( __FILE__ ) . '/assets/css/admin.css' )
+			);
 
 			wp_enqueue_media();
 
 			// Registers and enqueues the required javascript.
-			wp_register_script( 'rather-simple-featured-background-image', plugin_dir_url( __FILE__ ) . 'assets/js/backend.js', array( 'jquery' ) );
+			wp_register_script(
+				'rather-simple-featured-background-image',
+				plugin_dir_url( __FILE__ ) . 'assets/js/backend.js',
+				array( 'jquery' ),
+				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/backend.js' ),
+				false
+			);
 			wp_localize_script(
 				'rather-simple-featured-background-image',
 				'meta_image',
@@ -351,7 +362,12 @@ class Rather_Simple_Featured_Background_Image {
 
 		if ( is_singular() ) {
 
-			wp_enqueue_style( 'rather-simple-featured-background-image', plugin_dir_url( __FILE__ ) . 'style.css' );
+			wp_enqueue_style(
+				'rather-simple-featured-background-image',
+				plugin_dir_url( __FILE__ ) . 'style.css',
+				array(),
+				filemtime( plugin_dir_path( __FILE__ ) . '/style.css' )
+			);
 
 			$fbi_image  = get_post_meta( $post->ID, '_fbi_image', true );
 			$repeat     = get_post_meta( $post->ID, '_fbi_repeat', true );
