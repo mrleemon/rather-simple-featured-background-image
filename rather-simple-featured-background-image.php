@@ -3,10 +3,12 @@
  * Plugin Name: Rather Simple Featured Background Image
  * Plugin URI:
  * Update URI: false
- * Description: Creates an additional meta-box for assigning a featured background image to posts and pages
+ * Version: 1.0
+ * Requires at least: 5.3
+ * Requires PHP: 7.0
  * Author: Oscar Ciutat
- * Version: 1.0.0
  * Text Domain: rather-simple-featured-background-image
+ * Description: Creates an additional meta-box for assigning a featured background image to posts and pages
  * License: GPLv2 or later
  *
  * This program is free software; you can redistribute it and/or modify
