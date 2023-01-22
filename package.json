@@ -1,0 +1,12 @@
+{
+  "name": "rather-simple-featured-background-image",
+  "author": "Oscar Ciutat",
+  "version": "1.0.0",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "dir-archiver": "^1.2.0"
+  },
+  "scripts": {
+    "bundle": "dir-archiver --src . --dest ../rather-simple-featured-background-image.zip --exclude .git .gitattributes .gitignore node_modules package-lock.json package.json"
+  }
+}
