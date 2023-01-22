@@ -341,7 +341,7 @@ class Rather_Simple_Featured_Background_Image {
 				plugin_dir_url( __FILE__ ) . 'assets/js/backend.js',
 				array( 'jquery' ),
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/backend.js' ),
-				false
+				true
 			);
 			wp_localize_script(
 				'rather-simple-featured-background-image',
