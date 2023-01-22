@@ -339,7 +339,7 @@ class Rather_Simple_Featured_Background_Image {
 			wp_register_script(
 				'rather-simple-featured-background-image',
 				plugin_dir_url( __FILE__ ) . 'assets/js/backend.js',
-				array( 'jquery' ),
+				array(),
 				filemtime( plugin_dir_path( __FILE__ ) . '/assets/js/backend.js' ),
 				true
 			);
