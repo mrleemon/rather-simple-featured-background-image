@@ -51,7 +51,6 @@ class Rather_Simple_Featured_Background_Image {
 		}
 
 		return self::$instance;
-
 	}
 
 	/**
@@ -68,7 +67,6 @@ class Rather_Simple_Featured_Background_Image {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		add_action( 'save_post', array( $this, 'save_post' ), 10, 3 );
-
 	}
 
 	/**
@@ -253,7 +251,6 @@ class Rather_Simple_Featured_Background_Image {
 		</div>
 
 		<?php
-
 	}
 
 	/**
@@ -268,7 +265,7 @@ class Rather_Simple_Featured_Background_Image {
 		// Checks save status.
 		$is_autosave    = wp_is_post_autosave( $post_id );
 		$is_revision    = wp_is_post_revision( $post_id );
-		$is_valid_nonce = ( ! isset( $_POST['fbi_nonce'] ) || wp_verify_nonce( $_POST['fbi_nonce'], basename( __FILE__ ) ) ) ? 'true' : 'false';
+		$is_valid_nonce = ( ! isset( $_POST['fbi_nonce'] ) || wp_verify_nonce( wp_unslash( $_POST['fbi_nonce'] ), basename( __FILE__ ) ) ) ? 'true' : 'false';
 
 		// Exits script depending on save status.
 		if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
@@ -279,7 +276,7 @@ class Rather_Simple_Featured_Background_Image {
 
 			// Checks for input and saves if needed.
 			if ( isset( $_POST['fbi-image'] ) ) {
-				update_post_meta( $post_id, '_fbi_image', $_POST['fbi-image'] );
+				update_post_meta( $post_id, '_fbi_image', wp_unslash( $_POST['fbi-image'] ) );
 			}
 
 			$allowed_repeat     = array( 'no-repeat', 'repeat', 'repeat-x', 'repeat-y' );
@@ -289,11 +286,11 @@ class Rather_Simple_Featured_Background_Image {
 			$allowed_size       = array( 'auto', 'cover', 'contain' );
 
 			/* Make sure the values have been white-listed. Otherwise, set an empty string. */
-			$repeat     = in_array( $_POST['fbi-repeat'], $allowed_repeat ) ? $_POST['fbi-repeat'] : '';
-			$position_x = in_array( $_POST['fbi-position-x'], $allowed_position_x ) ? $_POST['fbi-position-x'] : '';
-			$position_y = in_array( $_POST['fbi-position-y'], $allowed_position_y ) ? $_POST['fbi-position-y'] : '';
-			$attachment = in_array( $_POST['fbi-attachment'], $allowed_attachment ) ? $_POST['fbi-attachment'] : '';
-			$size       = in_array( $_POST['fbi-size'], $allowed_size ) ? $_POST['fbi-size'] : '';
+			$repeat     = in_array( $_POST['fbi-repeat'], $allowed_repeat, true ) ? wp_unslash( $_POST['fbi-repeat'] ) : '';
+			$position_x = in_array( $_POST['fbi-position-x'], $allowed_position_x, true ) ? wp_unslash( $_POST['fbi-position-x'] ) : '';
+			$position_y = in_array( $_POST['fbi-position-y'], $allowed_position_y, true ) ? wp_unslash( $_POST['fbi-position-y'] ) : '';
+			$attachment = in_array( $_POST['fbi-attachment'], $allowed_attachment, true ) ? wp_unslash( $_POST['fbi-attachment'] ) : '';
+			$size       = in_array( $_POST['fbi-size'], $allowed_size, true ) ? wp_unslash( $_POST['fbi-size'] ) : '';
 
 			/* Set up an array of meta keys and values. */
 			$meta = array(
@@ -316,7 +313,6 @@ class Rather_Simple_Featured_Background_Image {
 				}
 			}
 		}
-
 	}
 
 	/**
@@ -398,9 +394,7 @@ class Rather_Simple_Featured_Background_Image {
 				wp_add_inline_style( 'rather-simple-featured-background-image', $custom_css );
 			}
 		}
-
 	}
-
 }
 
 add_action( 'plugins_loaded', array( Rather_Simple_Featured_Background_Image::get_instance(), 'plugin_setup' ) );
