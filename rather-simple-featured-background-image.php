@@ -5,7 +5,7 @@
  * Update URI: false
  * Version: 1.0
  * Requires at least: 5.3
- * Requires PHP: 7.0
+ * Requires PHP: 7.4
  * Author: Oscar Ciutat
  * Text Domain: rather-simple-featured-background-image
  * Description: Creates an additional meta-box for assigning a featured background image to posts and pages
